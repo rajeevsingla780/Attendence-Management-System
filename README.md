@@ -31,5 +31,12 @@ Online Attendance Management System 1.0 is developed in a standard way using  HT
 ## License
 MIT   
 
+## ***Authors***
+
+- Rajeev Singla
+   - [LinkedIn](https://www.linkedin.com/in/rajeev-singla-378a94153/)
+- Bhawika Arora
+   - [LinkedIn](https://www.linkedin.com/in/bhawika-arora-76b198183/)
+   - 
 ## Thanks
 Feel free to create PRs and create issues for suggestions or discussion.
