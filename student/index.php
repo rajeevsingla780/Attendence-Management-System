@@ -33,7 +33,7 @@ if($_SESSION['name']!='oasis')
   <a href="students.php">Students</a>
   <a href="report.php">My Report</a>
   <a href="account.php">My Account</a>
-  <a href="/am/logout.php">Logout</a>
+  <a href="../logout.php">Logout</a>
 
 </div>
 
