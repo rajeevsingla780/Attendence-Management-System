@@ -176,5 +176,20 @@ if(isset($error_msg))
 <p><strong>If you don't have any account, <a href="signup.php">Signup</a> here</strong></p>
 
 </center>
+	
+	<section class="my-5">
+  <div class="py-5">
+    <h2 class="text-center">Contact Us</h2>
+  </div>
+  <div>
+  <p class="text-center bg-dark text-white">Rajeev Singla - +91-9992490068, rajeevsingla780@gmail.com<br>Bhawika Arora - +91-9306592551, bbhawika_be@thapar.edu<br></p>
+  <a href="contact.html"> </a>
+  </div>
+</section>
+	
+	<div class="footer">
+  <p>© Copyright 2020<span id="demo"></span> <span class="brand">RajeevBhawika. </span> All Rights Reserved.
+</footer></p>
+</div>
 </body>
 </html>
