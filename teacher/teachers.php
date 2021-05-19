@@ -8,7 +8,10 @@ if($_SESSION['name']!='oasis')
   header('location: login.php');
 }
 ?>
-<?php include('connect.php');?>
+<?php
+$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+mysqli_select_db($con,'attdata') or die ('Cannot found database');
+?>
 
 
 <!DOCTYPE html>
@@ -42,7 +45,7 @@ if($_SESSION['name']!='oasis')
   <a href="teachers.php">Faculties</a>
   <a href="attendance.php">Attendance</a>
   <a href="report.php">Report</a>
-  <a href="/am/logout.php">Logout</a>
+  <a href="../logout.php">Logout</a>
 
 </div>
 
@@ -69,8 +72,8 @@ if($_SESSION['name']!='oasis')
       <?php
 
         $i=0;
-        $tcr_query = mysql_query("select * from teachers order by tc_id asc");
-        while($tcr_data = mysql_fetch_array($tcr_query)){
+        $tcr_query = mysqli_query($con,"select * from teachers order by tc_id asc");
+        while($tcr_data = mysqli_fetch_array($tcr_query)){
           $i++;
 
         ?>

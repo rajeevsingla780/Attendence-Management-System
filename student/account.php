@@ -10,8 +10,12 @@
   }
   ?>
 
-  <?php include('connect.php');?>
+ <?php
 
+$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+mysqli_select_db($con,'attdata') or die ('Cannot found database');
+
+?>
 
 <?php 
 try{
@@ -43,7 +47,7 @@ try{
   $sid = $_POST['id'];
 
   //udating students information to database table "students"
-  $result = mysql_query("update students set st_name='$_POST[name]',st_dept='$_POST[dept]',st_batch='$_POST[batch]',st_sem='$_POST[semester]', st_email = '$_POST[email]' where st_id='$sid'");
+  $result = mysqli_query($con,"update students set st_name='$_POST[name]',st_dept='$_POST[dept]',st_batch='$_POST[batch]',st_sem='$_POST[semester]', st_email = '$_POST[email]' where st_id='$sid'");
   $success_msg = 'Updated  successfully';
   
   }
@@ -96,7 +100,7 @@ catch(Exception $e){
   <a href="students.php">Students</a>
   <a href="report.php">My Report</a>
   <a href="account.php">My Account</a>
-  <a href="/am/logout.php">Logout</a>
+  <a href="../logout.php">Logout</a>
 
 </div>
 
@@ -151,8 +155,8 @@ catch(Exception $e){
        $i=0;
 
        //searching students information respected to the particular ID
-       $all_query = mysql_query("select * from students where students.st_id='$sr_id'");
-       while ($data = mysql_fetch_array($all_query)) {
+       $all_query = mysqli_query($con,"select * from students where students.st_id='$sr_id'");
+       while ($data = mysqli_fetch_array($all_query)) {
          $i++;
        
        ?>

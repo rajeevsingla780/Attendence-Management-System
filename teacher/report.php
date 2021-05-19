@@ -8,7 +8,10 @@ if($_SESSION['name']!='oasis')
   header('location: login.php');
 }
 ?>
-<?php include('connect.php');?>
+<?php
+$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+mysqli_select_db($con,'attdata') or die ('Cannot found database');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +43,7 @@ if($_SESSION['name']!='oasis')
   <a href="teachers.php">Faculties</a>
   <a href="attendance.php">Attendance</a>
   <a href="report.php">Report</a>
-  <a href="/am/logout.php">Logout</a>
+  <a href="../logout.php">Logout</a>
 
 </div>
 
@@ -94,9 +97,9 @@ if($_SESSION['name']!='oasis')
      $sr_id = $_POST['sr_id'];
      $course = $_POST['whichcourse'];
 
-     $single = mysql_query("select * from reports where reports.st_id='$sr_id' and reports.course = '$course'");
+     $single = mysqli_query($con,"select * from reports where reports.st_id='$sr_id' and reports.course = '$course'");
 
-     $count_tot = mysql_num_rows($single);
+     $count_tot = mysqli_num_rows($single);
   } 
 
     if(isset($_POST['sr_date'])){
@@ -104,7 +107,7 @@ if($_SESSION['name']!='oasis')
      $sdate = $_POST['date'];
      $course = $_POST['whichcourse'];
 
-     $all_query = mysql_query("select * from reports where reports.stat_date='$sdate' and reports.course = '$course'");
+     $all_query = mysqli_query($con,"select * from reports where reports.stat_date='$sdate' and reports.course = '$course'");
 
     }
     if(isset($_POST['sr_date'])){
@@ -127,7 +130,7 @@ if($_SESSION['name']!='oasis')
     <?php
 
      $i=0;
-     while ($data = mysql_fetch_array($all_query)) {
+     while ($data = mysqli_fetch_array($all_query)) {
 
        $i++;
 
@@ -161,7 +164,7 @@ if($_SESSION['name']!='oasis')
 
        $count_pre = 0;
        $i= 0;
-       while ($data = mysql_fetch_array($single)) {
+       while ($data = mysqli_fetch_array($single)) {
        $i++;
        if($data['st_status'] == "Present"){
           $count_pre++;

@@ -8,14 +8,17 @@ if($_SESSION['name']!='oasis')
   header('location: login.php');
 }
 ?>
-<?php include('connect.php');?>
+ <?php
+$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+mysqli_select_db($con,'attdata') or die ('Cannot found database');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <!-- head started -->
 <head>
-<title>Online Attendance Management System 1.0</title>
+<title>Online Attendance Management System </title>
 <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/am/css/main.css">
   <!-- Latest compiled and minified CSS -->
@@ -44,7 +47,7 @@ if($_SESSION['name']!='oasis')
   <a href="students.php">Students</a>
   <a href="report.php">My Report</a>
   <a href="account.php">My Account</a>
-  <a href="/am/logout.php">Logout</a>
+  <a href="../logout.php">Logout</a>
 
 </div>
 
@@ -100,10 +103,10 @@ if($_SESSION['name']!='oasis')
      $count_pre = 0;
      
      //query for searching respective ID
-     $all_query = mysql_query("select * from reports where reports.st_id='$sr_id' and reports.course = '$course'");
-     $count_tot = mysql_num_rows($all_query);
+     $all_query = mysqli_query($con,"select * from reports where reports.st_id='$sr_id' and reports.course = '$course'");
+     $count_tot = mysqli_num_rows($all_query);
 
-     while ($data = mysql_fetch_array($all_query)) {
+     while ($data = mysqli_fetch_array($all_query)) {
        $i++;
        if($data['st_status'] == "Present"){
           $count_pre++;

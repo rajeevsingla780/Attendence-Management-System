@@ -28,7 +28,7 @@ if($_SESSION['name']!='oasis')
   <a href="teachers.php">Faculties</a>
   <a href="attendance.php">Attendance</a>
   <a href="report.php">Report</a>
-  <a href="/am/logout.php">Logout</a>
+  <a href="../logout.php">Logout</a>
 
 </div>
 
@@ -39,7 +39,7 @@ if($_SESSION['name']!='oasis')
 <div class="row">
     <div class="content">
       <p>One stop  solution for your class room :)</p>
-    <img src="/am/img/tcr.png" height="200px" width="300px" />
+    <img src="../img/tcr.png" height="200px" width="300px" />
 
   </div>
 

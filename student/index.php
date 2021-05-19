@@ -5,7 +5,7 @@ session_start();
 
 if($_SESSION['name']!='oasis')
 {
-  header('location: ../index.php');
+  header('location: /am/index.php');
 }
 ?>
 
@@ -46,7 +46,7 @@ if($_SESSION['name']!='oasis')
 <div class="row">
     <div class="content">
       <p>Be attentive and be regular :)</p>
-    <img src="/am/img/tcr.png" height="200px" width="300px" />
+    <img src="../img/tcr.png" height="200px" width="300px" />
 
   </div>
 

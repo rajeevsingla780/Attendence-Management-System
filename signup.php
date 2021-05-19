@@ -1,6 +1,7 @@
 <?php
 
-include('connect.php');
+$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+mysqli_select_db($con,'attdata') or die ('Cannot found database');
 
   try{
     
@@ -28,7 +29,7 @@ include('connect.php');
            throw new Exception("Username cann't be empty.");
         }
 
-        $result = mysql_query("insert into admininfo(username,password,email,fname,phone,type) values('$_POST[uname]','$_POST[pass]','$_POST[email]','$_POST[fname]','$_POST[phone]','$_POST[type]')");
+        mysqli_query($con,"insert into admininfo(username,password,email,fname,phone,type) values('$_POST[uname]','$_POST[pass]','$_POST[email]','$_POST[fname]','$_POST[phone]','$_POST[type]')");
         $success_msg="Signup Successfully!";
 
   
@@ -139,7 +140,7 @@ include('connect.php');
       <div class="form-group">
           <label for="input1" class="col-sm-3 control-label">Password</label>
           <div class="col-sm-7">
-            <input type="password" name="password"  class="form-control" id="input1" placeholder="choose a strong password" />
+            <input type="password" name="pass"  class="form-control" id="input1" placeholder="choose a strong password" />
           </div>
       </div>
 

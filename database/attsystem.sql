@@ -165,7 +165,7 @@ INSERT INTO `teachers` (`tc_id`, `tc_name`, `tc_dept`, `tc_email`, `tc_course`) 
 --
 DROP TABLE IF EXISTS `reports`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reports` AS select `students`.`st_id` AS `st_id`,`students`.`st_name` AS `st_name`,`students`.`st_dept` AS `st_dept`,`students`.`st_batch` AS `st_batch`,`attendance`.`stat_date` AS `stat_date`,`attendance`.`st_status` AS `st_status`,`attendance`.`course` AS `course` from (`attendance` join `students`) where (`students`.`st_id` = `attendance`.`stat_id`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`bbc44aa5fecda5`@`us-cdbr-east-03.cleardb.com` SQL SECURITY DEFINER VIEW `reports` AS select `students`.`st_id` AS `st_id`,`students`.`st_name` AS `st_name`,`students`.`st_dept` AS `st_dept`,`students`.`st_batch` AS `st_batch`,`attendance`.`stat_date` AS `stat_date`,`attendance`.`st_status` AS `st_status`,`attendance`.`course` AS `course` from (`attendance` join `students`) where (`students`.`st_id` = `attendance`.`stat_id`);
 
 --
 -- Indexes for dumped tables

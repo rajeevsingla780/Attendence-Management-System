@@ -1,7 +1,8 @@
 <?php
 
 //establishing connection
-include('connect.php');
+$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+mysqli_select_db($con,'attdata') or die ('Cannot found database');
 
   try{
 
@@ -31,7 +32,7 @@ include('connect.php');
                   }
 
         //insertion of data to database table admininfo
-        $result = mysql_query("insert into admininfo(username,password,email,fname,phone,type) values('$_POST[uname]','$_POST[pass]','$_POST[email]','$_POST[fname]','$_POST[phone]','$_POST[type]')");
+        $result = mysqli_query($con,"insert into admininfo(username,password,email,fname,phone,type) values('$_POST[uname]','$_POST[pass]','$_POST[email]','$_POST[fname]','$_POST[phone]','$_POST[type]')");
         $success_msg="Signup Successfully!";
 
   
@@ -76,7 +77,7 @@ include('connect.php');
       <div class="navbar">
       <a href="signup.php">Create Users</a>
       <a href="index.php">Add Data</a>
-      <a href="/am/logout.php">Logout</a>
+      <a href="../logout.php">Logout</a>
 
     </div>
 

@@ -16,13 +16,14 @@ if(isset($_POST['login']))
 			
 		}
 		//establishing connection with db and things
-		include ('connect.php');
-		
+		// include ('connect.php');
+		$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+		mysqli_select_db($con,'attdata') or die ('Cannot found database');
 		//checking login info into database
 		$row=0;
-		$result=mysql_query("select * from admininfo where username='$_POST[username]' and password='$_POST[password]' and type='$_POST[type]'");
+		$result=mysqli_query($con,"select * from admininfo where username='$_POST[username]' and password='$_POST[password]' and type='$_POST[type]'");
 
-		$row=mysql_num_rows($result);
+		$row=mysqli_num_rows($result);
 
 		if($row>0 && $_POST["type"] == 'teacher'){
 			session_start();
@@ -135,7 +136,7 @@ if(isset($error_msg))
 			<div class="form-group">
 			    <label for="input1" class="col-sm-3 control-label">Username</label>
 			    <div class="col-sm-7">
-			      <input type="text" name="username"  class="form-control" id="input1" placeholder="your usrename" />
+			      <input type="text" name="username"  class="form-control" id="input1" placeholder="your username" />
 			    </div>
 			</div>
 
