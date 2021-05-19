@@ -8,11 +8,18 @@ if($_SESSION['name']!='oasis')
   header('location: login.php');
 }
 ?>
- <?php
-$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
-mysqli_select_db($con,'attdata') or die ('Cannot found database');
+<?php
+//Get Heroku ClearDB connection information
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"],1);
+$active_group = 'default';
+$query_builder = TRUE;
+// Connect to DB
+$con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
