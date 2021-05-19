@@ -182,7 +182,7 @@ if(isset($error_msg))
     <h2 class="text-center">Contact Us</h2>
   </div>
   <div>
-  <p class="text-center bg-dark text-white">Rajeev Singla - +91-9992490068, rajeevsingla780@gmail.com<br>Bhawika Arora - +91-9306592551, bbhawika_be@thapar.edu<br></p>
+  <p class="text-center bg-dark text-white">Rajeev Singla - <a href="https://www.linkedin.com/in/rajeev-singla-378a94153/">LinkedIn</a>, rajeevsingla780@gmail.com<br>Bhawika Arora - <a href="https://www.linkedin.com/in/bhawika-arora-76b198183/">LinkedIn</a>, bhawikavk2@gmail.com<br></p>
   <a href="contact.html"> </a>
   </div>
 </section>
