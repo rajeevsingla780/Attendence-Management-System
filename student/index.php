@@ -5,7 +5,7 @@ session_start();
 
 if($_SESSION['name']!='oasis')
 {
-  header('location: /am/index.php');
+  header('location: ../index.php');
 }
 ?>
 
