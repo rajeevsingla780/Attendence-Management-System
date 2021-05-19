@@ -16,9 +16,9 @@ if(isset($_POST['login']))
 			
 		}
 		//establishing connection with db and things
-		// include ('connect.php');
-		$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
-		mysqli_select_db($con,'attdata') or die ('Cannot found database');
+		 include ('connect.php');
+// 		$con=mysqli_connect('localhost','root','') or die('Cannot connect to server');
+// 		mysqli_select_db($con,'attdata') or die ('Cannot found database');
 		//checking login info into database
 		$row=0;
 		$result=mysqli_query($con,"select * from admininfo where username='$_POST[username]' and password='$_POST[password]' and type='$_POST[type]'");
